@@ -82,6 +82,7 @@ span {
 .winner span {
   scale: 2;
   translate: 0 -13%;
+  transition: scale 1s;
 }
 .winner .circle {
   scale: 3;
