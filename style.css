@@ -1,0 +1,90 @@
+:root {
+  --bg-color: #072931;
+  --border-color: #0d404c;
+  --hover-color: #1c3a40;
+}
+html {
+  box-sizing: border-box;
+  background-color: var(--bg-color);
+  color: white;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 20vmin);
+  grid-template-rows: repeat(5, 20vmin);
+  justify-content: center;
+  align-content: center;
+  position: relative;
+}
+
+h1 {
+  grid-column: span 3;
+  justify-self: center;
+  align-self: start;
+  font-weight: 400;
+  font-size: 5vmin;
+}
+
+button {
+  grid-column: span 3;
+  justify-self: center;
+  margin: 2rem;
+  align-self: end;
+  border: 3px solid var(--border-color);
+  border-radius: 7px;
+  font-size: 2vmin;
+  color: white;
+  background-color: var(--bg-color);
+  padding: 0.5rem 1rem;
+}
+
+.square {
+  aspect-ratio: 1/1;
+  border: 3px solid var(--border-color);
+  transition: background-color 0.5s;
+  text-align: center;
+}
+
+.square:hover,
+button:hover {
+  background-color: var(--hover-color);
+}
+
+.box {
+  position: absolute;
+  border: 8px solid var(--bg-color);
+  width: 58vmin;
+  height: 58vmin;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  pointer-events: none;
+}
+span {
+  font-size: 15vmin;
+  display: block;
+}
+.circle {
+  scale: 2;
+  translate: 0 -13%;
+}
+
+.winner {
+  background-color: var(--hover-color);
+  pointer-events: none;
+}
+.winner span {
+  scale: 2;
+  translate: 0 -13%;
+}
+.winner .circle {
+  scale: 3;
+  translate: 0 -22%;
+  transition: scale 1s;
+}
