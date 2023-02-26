@@ -10,6 +10,13 @@ function set(e) {
 
     console.log(e.target.id, e.target.firstElementChild.className);
     //push square id in the result arrays
+    if (e.target.firstElementChild.className === "circle") {
+      circled.push(e.target.id);
+    } else if (e.target.firstElementChild.className === "cross") {
+      crossed.push(e.target.id);
+    }
+
+    //results
     if (document.querySelectorAll("span").length >= 5) {
       win(circled, "Player 1");
       win(crossed, "Player 2");
@@ -17,14 +24,6 @@ function set(e) {
       document.querySelector("h1").innerText = "Draw!";
     }
     console.log(circled, crossed);
-
-    //results
-    if (document.querySelectorAll("span").length === 9) {
-      document.querySelector("h1").innerText = "Draw!";
-    } else if (document.querySelectorAll("span").length >= 5) {
-      win(circled, "Player 1");
-      win(crossed, "Player 2");
-    }
   }
 }
 
@@ -32,11 +31,11 @@ function symbol(element) {
   //but symbols in square
   if (gamer === "Player 1") {
     element.innerHTML =
-      '<span class="circle" style="color:#5F9EA0">&#9900;</span>';
+      '<span class="circle" style="color:#5F9EA0;pointer-events:none">&#9900;</span>';
     gamer = "Player 2";
   } else {
     element.innerHTML =
-      '<span class="cross" style="color:#DC143C">&#215;</span>';
+      '<span class="cross" style="color:#DC143C;">&#215;</span>';
     gamer = "Player 1";
   }
   document.querySelector("h1").innerText = gamer;
