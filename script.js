@@ -19,8 +19,6 @@ function set(e) {
     if (document.querySelectorAll("span").length >= 5) {
       win(circled, "Player 1");
       win(crossed, "Player 2");
-    } else if (document.querySelectorAll("span").length === 9) {
-      document.querySelector("h1").innerText = "Draw!";
     }
   }
 }
@@ -84,6 +82,8 @@ function win(result, winner) {
       document.querySelector(`#s${z}`).classList.add("winner");
 
       document.querySelector(".box").style.setProperty("pointer-events", "all");
+    } else if (document.querySelectorAll("span").length === 9) {
+      document.querySelector("h1").innerText = "Draw!";
     }
   }
 }
