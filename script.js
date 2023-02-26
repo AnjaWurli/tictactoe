@@ -5,10 +5,9 @@ let crossed = [];
 
 function set(e) {
   //if square is clicked
-  if (e.target.classList.value === "square") {
+  if (e.target.classList.value === "square" && !e.target.innerHTML) {
     symbol(e.target);
 
-    console.log(e.target.id, e.target.firstElementChild.className);
     //push square id in the result arrays
     if (e.target.firstElementChild.className === "circle") {
       circled.push(e.target.id);
@@ -23,7 +22,6 @@ function set(e) {
     } else if (document.querySelectorAll("span").length === 9) {
       document.querySelector("h1").innerText = "Draw!";
     }
-    console.log(circled, crossed);
   }
 }
 
@@ -38,6 +36,7 @@ function symbol(element) {
       '<span class="cross" style="color:#DC143C;">&#215;</span>';
     gamer = "Player 1";
   }
+
   document.querySelector("h1").innerText = gamer;
 }
 
