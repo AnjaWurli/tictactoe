@@ -10,10 +10,11 @@ function set(e) {
 
     console.log(e.target.id, e.target.firstElementChild.className);
     //push square id in the result arrays
-    if (e.target.firstElementChild.className === "circle") {
-      circled.push(e.target.id);
-    } else if (e.target.firstElementChild.className === "cross") {
-      crossed.push(e.target.id);
+    if (document.querySelectorAll("span").length >= 5) {
+      win(circled, "Player 1");
+      win(crossed, "Player 2");
+    } else if (document.querySelectorAll("span").length === 9) {
+      document.querySelector("h1").innerText = "Draw!";
     }
     console.log(circled, crossed);
 
